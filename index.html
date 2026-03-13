@@ -643,8 +643,62 @@
                             </div>
                         </div>
 
-                        {/* CTA Final */}
-                        <div className="mt-12 mb-8 bg-[#1B4381] rounded-3xl p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left shadow-md gap-6">
+                        </div>
+                    )}
+
+                    {/* CONTEÚDO: POR QUE NÓS */}
+                    {activeTab === 'porque' && (
+                        <div className="p-6 md:p-12 lg:p-20 max-w-7xl mx-auto flex flex-col min-h-full">
+                        <div className="mb-12">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#1B4381] text-white text-xs font-bold uppercase tracking-wider mb-6">
+                            Nossos Diferenciais
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#1B4381] mb-6">Por que nós?</h2>
+                            <p className="text-xl text-slate-600 mb-12 border-l-4 border-[#F7D525] pl-4 py-1">
+                            Diferente de agências tradicionais que focam em métricas de vaidade (likes), nós focamos em <strong className="text-[#1B4381]">Conectar Mentes</strong>.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-8 mb-16 max-w-5xl mx-auto">
+                            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div className="w-20 h-20 flex-shrink-0 bg-[#1B4381]/10 rounded-2xl flex items-center justify-center border border-[#1B4381]/20">
+                                <i className="fa-solid fa-bullseye text-3xl text-[#1B4381]"></i>
+                            </div>
+                            <div>
+                                <h4 className="text-2xl font-bold text-[#1B4381] mb-3">Suporte Direto</h4>
+                                <p className="text-slate-600 leading-relaxed text-lg">
+                                Comunicação fluida e ágil diretamente com a liderança da agência. Compreendemos que a confiança é a base de tudo, por isso o nosso compromisso com a comunicação clara e eficaz é inegociável. Garantimos reuniões de alinhamento periódicas, suporte dedicado via WhatsApp nos dias úteis e total facilidade de acesso à nossa direção. Conosco, não há intermediários a dificultar o processo: a sua marca tem a nossa atenção primária.
+                                </p>
+                            </div>
+                            </div>
+
+                            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div className="w-20 h-20 flex-shrink-0 bg-[#F7D525]/20 rounded-2xl flex items-center justify-center border border-[#F7D525]/40">
+                                <i className="fa-solid fa-chart-column text-3xl text-[#1B4381]"></i>
+                            </div>
+                            <div>
+                                <h4 className="text-2xl font-bold text-[#1B4381] mb-3">Eficiência de Custo</h4>
+                                <p className="text-slate-600 leading-relaxed text-lg">
+                                Uma equipe interna com esses 5 especialistas custaria à Lopti <strong className="text-[#1B4381]">de R$ 30.000,00 a R$ 50.000,00/mês</strong>. Fornecemos uma estrutura premium e multidisciplinar por uma fração desse custo.
+                                </p>
+                            </div>
+                            </div>
+
+                            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div className="w-20 h-20 flex-shrink-0 bg-[#1B4381]/10 rounded-2xl flex items-center justify-center border border-[#1B4381]/20">
+                                <i className="fa-solid fa-users text-3xl text-[#1B4381]"></i>
+                            </div>
+                            <div>
+                                <h4 className="text-2xl font-bold text-[#1B4381] mb-3">Personalização Estratégica</h4>
+                                <p className="text-slate-600 leading-relaxed text-lg">
+                                Não trabalhamos com pacotes prontos ou fórmulas padrão. Cada estratégia é única e desenvolvida especialmente para o cliente, considerando rigorosamente todas as suas particularidades. É com este nível de dedicação que conseguimos garantir eficiência e solidez nos resultados.
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+
+                        {/* CTA Final (WhatsApp) */}
+                        <div className="mt-auto mb-8 bg-[#1B4381] rounded-3xl p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left shadow-md gap-6">
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-2">Pronto para dar o próximo passo?</h4>
                                 <p className="text-blue-200 text-sm">Estamos à disposição para esclarecer qualquer dúvida.</p>
@@ -658,7 +712,7 @@
                         </div>
 
                         {/* Rodapé Simplificado */}
-                        <div className="mt-auto pt-10 border-t border-slate-200 flex flex-col items-center justify-center">
+                        <div className="pt-10 border-t border-slate-200 flex flex-col items-center justify-center">
                             <img src={logoUrl} alt="Connect Minds Logo Footer" className="h-8 w-auto object-contain opacity-80 mb-3" />
                             <p className="text-xs text-slate-400">© {new Date().getFullYear()} Connect Minds. Documento Confidencial.</p>
                         </div>
