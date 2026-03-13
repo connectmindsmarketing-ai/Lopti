@@ -168,8 +168,8 @@
                 )}
 
                 {/* ================= MAIN CONTENT AREA ================= */}
-                <main ref={mainRef} className="flex-1 overflow-y-auto bg-slate-50/50 relative pt-16 pb-24 md:pt-0 md:pb-0">
-                    <div className={`transition-opacity duration-300 ease-in-out w-full h-full ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <main ref={mainRef} className="flex-1 overflow-y-auto bg-slate-50/50 relative pt-16 md:pt-0">
+                    <div className={`transition-opacity duration-300 ease-in-out w-full min-h-full ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                     
                     {/* CONTEÚDO: INÍCIO */}
                     {activeTab === 'inicio' && (
@@ -718,6 +718,9 @@
                         </div>
                         </div>
                     )}
+
+                    {/* Espaçamento extra global no fundo para o Mobile (Evita o corte da barra de navegação) */}
+                    <div className="h-40 md:h-12 w-full flex-shrink-0"></div>
 
                     </div>
                 </main>
