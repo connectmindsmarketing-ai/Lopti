@@ -55,8 +55,21 @@
 
             useEffect(() => {
                 setIsVisible(false);
-                const timer = setTimeout(() => setIsVisible(true), 50);
-                return () => clearTimeout(timer);
+                
+                // Rola a página para o topo automaticamente sempre que a aba mudar.
+                // O setTimeout garante que o React já atualizou o conteúdo da nova secção.
+                const scrollTimer = setTimeout(() => {
+                    if (mainRef.current) {
+                        mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, 10);
+
+                const visibilityTimer = setTimeout(() => setIsVisible(true), 50);
+                
+                return () => {
+                    clearTimeout(scrollTimer);
+                    clearTimeout(visibilityTimer);
+                };
             }, [activeTab]);
 
             const navLinks = [
@@ -71,10 +84,7 @@
             const handleNavClick = (id) => {
                 setActiveTab(id);
                 setIsMobileMenuOpen(false);
-                // Rola a página para o topo automaticamente ao trocar de aba
-                if (mainRef.current) {
-                    mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                // A rolagem para o topo agora é gerenciada com segurança pelo useEffect acima
             };
 
             return (
