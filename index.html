@@ -6,7 +6,7 @@
     <title>Proposta Comercial - Connect Minds</title>
     
     <!-- Tailwind CSS para Estilização -->
-    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -131,7 +131,7 @@
                 {/* ================= MOBILE HEADER ================= */}
                 <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-slate-200 shadow-sm z-30 flex items-center justify-between px-4">
                     <img src={logoUrl} alt="Logo" className="h-8 object-contain" />
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 rounded-lg text-[#1B4381] bg-slate-50 border border-slate-200">
+                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 rounded-lg text-[#1B4381] bg-slate-50 border border-slate-200 focus:outline-none">
                     <i className={isMobileMenuOpen ? "fa-solid fa-xmark text-xl" : "fa-solid fa-bars text-xl"}></i>
                     </button>
                 </div>
@@ -139,7 +139,7 @@
                 {/* MOBILE MENU OVERLAY */}
                 {isMobileMenuOpen && (
                     <div className="md:hidden fixed inset-0 z-20 bg-black/20 backdrop-blur-sm mt-16">
-                    <div className="bg-white h-full w-full shadow-xl flex flex-col p-4 space-y-2">
+                    <div className="bg-white h-full w-full shadow-xl flex flex-col p-4 space-y-2 text-center overflow-y-auto pb-10">
                         {navLinks.map((link) => (
                         <button key={link.id} onClick={() => handleNavClick(link.id)} className={`w-full flex items-center gap-4 px-4 py-4 rounded-xl font-bold text-lg ${activeTab === link.id ? 'bg-[#1B4381]/5 text-[#1B4381]' : 'text-slate-600'}`}>
                             <i className={`${link.icon} w-6 text-center text-xl ${activeTab === link.id ? 'text-[#F7D525]' : 'text-slate-400'}`}></i>
@@ -501,12 +501,12 @@
                                 <p className="text-slate-600 text-sm">Equipe multidisciplinar alocada: Estrategista, Designer, Editor e Copywriter.</p>
                             </div>
                             <div className="text-left md:text-right">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Investimento Mensal</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Investimento Mensal Base</span>
                                 <div className="text-3xl font-extrabold text-[#1B4381]">R$ 4.500<span className="text-lg text-slate-500 font-medium">,00</span></div>
                             </div>
                             </div>
 
-                            {/* Linha 3 (Atualizada) */}
+                            {/* Linha 3 */}
                             <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-50">
                             <div className="flex-1">
                                 <span className="text-xs font-bold text-[#1B4381] uppercase tracking-wider block mb-1">Serviço Contínuo 2</span>
@@ -518,45 +518,49 @@
                                 </div>
                             </div>
                             <div className="text-left md:text-right flex flex-col justify-center">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Investimento Mensal</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Investimento Mensal Base</span>
                                 <div className="text-3xl font-extrabold text-[#1B4381]">R$ 8.000<span className="text-lg text-slate-500 font-medium">,00</span></div>
                                 <span className="mt-2 text-[10px] font-bold text-slate-400 uppercase bg-slate-100 px-2 py-1 rounded inline-block self-start md:self-end">Válido p/ investimentos até R$ 400.000,00</span>
                             </div>
                             </div>
                         </div>
 
-                        {/* Seção Resumo do Investimento */}
-                        <div className="mb-12 bg-[#1B4381]/5 border-2 border-dashed border-[#1B4381]/20 rounded-3xl p-6 md:p-10">
+                        {/* Seção Resumo do Investimento Com Desconto */}
+                        <div className="mb-12 bg-gradient-to-br from-[#1B4381]/5 to-[#F7D525]/5 border-2 border-[#1B4381]/20 rounded-3xl p-6 md:p-10 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 bg-[#F7D525] text-[#1B4381] font-black px-8 py-2 transform rotate-45 translate-x-10 translate-y-4 shadow-sm text-sm">OFERTA ESPECIAL</div>
+                            
                             <h4 className="text-xl font-bold text-[#1B4381] mb-6 flex items-center gap-2">
-                                <i className="fa-solid fa-list-check text-[#F7D525]"></i> Resumo da Solução Mensal
+                                <i className="fa-solid fa-gift text-[#F7D525]"></i> Campanha de Boas-vindas (Trimestre Inicial)
                             </h4>
+                            
+                            <p className="text-slate-600 mb-8 leading-relaxed">
+                                Para que a <strong>Lopti</strong> comprove na prática a qualidade da nossa entrega e o impacto da nossa metodologia, concederemos um <strong>desconto exclusivo de 30%</strong> sobre o valor total da proposta durante os primeiros 3 meses de contrato.
+                            </p>
+
                             <div className="space-y-4 mb-8">
-                                <div className="flex justify-between items-center text-base md:text-lg">
-                                    <span className="text-slate-600 flex items-center gap-2">
-                                        <i className="fa-solid fa-check text-green-500 text-sm"></i> Gestão de Redes Sociais
-                                    </span>
-                                    <span className="font-bold text-[#1B4381]">R$ 4.500,00</span>
+                                <div className="flex justify-between items-center text-sm md:text-base opacity-60">
+                                    <span className="text-slate-600">Investimento Total Mensal (Original)</span>
+                                    <span className="font-bold line-through">R$ 12.500,00</span>
                                 </div>
-                                <div className="flex justify-between items-center text-base md:text-lg">
-                                    <span className="text-slate-600 flex items-center gap-2">
-                                        <i className="fa-solid fa-check text-green-500 text-sm"></i> Gestão de Tráfego Pago
-                                    </span>
-                                    <span className="font-bold text-[#1B4381]">R$ 8.000,00</span>
+                                <div className="flex justify-between items-center text-base md:text-lg text-green-600 font-bold">
+                                    <span>Desconto Boas-vindas (30%)</span>
+                                    <span>- R$ 3.750,00</span>
                                 </div>
                                 <div className="border-t border-[#1B4381]/10 pt-6 flex justify-between items-center">
                                     <div className="flex flex-col">
-                                        <span className="text-2xl font-extrabold text-[#1B4381]">Investimento Total</span>
-                                        <p className="text-xs text-slate-500 font-medium uppercase tracking-tighter">Squad Especialista + Suporte Direto</p>
+                                        <span className="text-2xl font-extrabold text-[#1B4381]">Investimento Mensal Final</span>
+                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-tighter">Válido para os Meses 01, 02 e 03</p>
                                     </div>
                                     <div className="text-right">
-                                        <span className="text-3xl font-extrabold text-[#1B4381]">R$ 12.500,00</span>
-                                        <p className="text-[10px] text-slate-400 mt-1 font-bold">VALOR MENSAL INTEGRADO</p>
+                                        <span className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#1B4381] whitespace-nowrap">R$ 8.750,00</span>
+                                        <p className="text-[10px] text-[#1B4381] mt-1 font-black">OPORTUNIDADE EXCLUSIVA</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-[#F7D525]/20 p-4 rounded-xl text-center border border-[#F7D525]/30">
-                                <p className="text-sm text-[#1B4381] font-bold">
-                                    <i className="fa-solid fa-gift mr-2"></i> Fase 01 (Estratégia) Bonificada: Economia Imediata de R$ 3.500,00
+
+                            <div className="bg-white/60 p-4 rounded-xl text-center border border-slate-200">
+                                <p className="text-[10px] md:text-xs text-slate-500 leading-tight italic">
+                                    *Após o período de 3 meses, em caso de renovação ou continuidade do contrato, o investimento será reajustado automaticamente para o valor original da proposta (R$ 12.500,00/mês).
                                 </p>
                             </div>
                         </div>
